@@ -5,6 +5,7 @@
 package View;
 
 import Controller.BukuController;
+import Controller.RiwayatPeminjamanController;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -18,10 +19,12 @@ public class DashboardPage extends javax.swing.JFrame {
      * Creates new form DashboardPage
      */
     BukuController bc;
+    RiwayatPeminjamanController rpc;
     public DashboardPage() {
         initComponents();
         
         bc = new BukuController(this);
+        rpc = new RiwayatPeminjamanController(this);
         bc.isiTabelDashboardPage();
     }
 
@@ -41,7 +44,7 @@ public class DashboardPage extends javax.swing.JFrame {
         jButtonRiwayatPeminjaman = new javax.swing.JButton();
         jButtonManajemen = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonPinjam = new javax.swing.JButton();
         jLabelJudul = new javax.swing.JLabel();
         jLabelGenre = new javax.swing.JLabel();
         jLabelTahun = new javax.swing.JLabel();
@@ -98,7 +101,12 @@ public class DashboardPage extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Pinjam Buku");
+        jButtonPinjam.setText("Pinjam Buku");
+        jButtonPinjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPinjamActionPerformed(evt);
+            }
+        });
 
         jLabelJudul.setText("Judul");
 
@@ -115,7 +123,7 @@ public class DashboardPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
+                    .addComponent(jButtonPinjam)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonPinjamBuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -144,12 +152,11 @@ public class DashboardPage extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(61, 61, 61)
+                                .addGap(79, 79, 79)
                                 .addComponent(jButtonPinjamBuku)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonRiwayatPeminjaman)
@@ -157,7 +164,7 @@ public class DashboardPage extends javax.swing.JFrame {
                                 .addComponent(jButtonManajemen)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelJudul)
@@ -167,7 +174,7 @@ public class DashboardPage extends javax.swing.JFrame {
                             .addComponent(jLabelTahun)
                             .addComponent(jLabelPenulis))
                         .addGap(112, 112, 112)))
-                .addComponent(jButton3)
+                .addComponent(jButtonPinjam)
                 .addGap(18, 18, 18))
         );
 
@@ -214,11 +221,16 @@ public class DashboardPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = jTableBuku.getSelectedRow();
         
-        jLabelJudul.setText(jTableBuku.getValueAt(baris, 0).toString());
-        jLabelGenre.setText(jTableBuku.getValueAt(baris, 1).toString());
-        jLabelTahun.setText(jTableBuku.getValueAt(baris, 2).toString());
-        jLabelPenulis.setText(jTableBuku.getValueAt(baris, 3).toString());
+        jLabelJudul.setText(jTableBuku.getValueAt(baris, 1).toString());
+        jLabelGenre.setText(jTableBuku.getValueAt(baris, 2).toString());
+        jLabelTahun.setText(jTableBuku.getValueAt(baris, 3).toString());
+        jLabelPenulis.setText(jTableBuku.getValueAt(baris, 4).toString());
     }//GEN-LAST:event_jTableBukuMouseClicked
+
+    private void jButtonPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPinjamActionPerformed
+        // TODO add your handling code here:
+        rpc.insert();
+    }//GEN-LAST:event_jButtonPinjamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,9 +268,9 @@ public class DashboardPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonManajemen;
+    private javax.swing.JButton jButtonPinjam;
     private javax.swing.JButton jButtonPinjamBuku;
     private javax.swing.JButton jButtonRiwayatPeminjaman;
     private javax.swing.JLabel jLabel1;

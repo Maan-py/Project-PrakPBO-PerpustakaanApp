@@ -5,6 +5,7 @@
 package View;
 
 import Controller.BukuController;
+import Controller.RiwayatPeminjamanController;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -19,14 +20,14 @@ public class RiwayatPeminjamanPage extends javax.swing.JFrame {
      * Creates new form DashboardPage
      */
 //    public int IdBuku;
-    BukuController bc;
+    RiwayatPeminjamanController rpc;
     public RiwayatPeminjamanPage() {
         initComponents();
         
 //        this.IdBuku = IdBuku;
 
-//        bc = new BukuController(this);
-//        bc.isiTabelManajemenBukuPage();
+        rpc = new RiwayatPeminjamanController(this);
+        rpc.isiTableRiwayatPeminjamanPage();
     }
 
     /**

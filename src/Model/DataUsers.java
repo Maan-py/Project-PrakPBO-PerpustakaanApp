@@ -9,6 +9,7 @@ package Model;
  * @author Maan
  */
 public class DataUsers {
+    public static DataUsers currentUser;
     private int IdUser;
     private String username;
     private String password;

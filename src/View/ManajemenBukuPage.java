@@ -293,12 +293,12 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = jTableBuku.getSelectedRow();
         
-        jJudulField.setText(jTableBuku.getValueAt(baris, 0).toString());
-        jGenreField.setText(jTableBuku.getValueAt(baris, 1).toString());
-        jTahunField.setText(jTableBuku.getValueAt(baris, 2).toString());
-        jPenulisField.setText(jTableBuku.getValueAt(baris, 3).toString());
-        jLink_CoverField.setText(jTableBuku.getValueAt(baris, 4).toString());
-        jComboBoxStatus.setSelectedItem(jTableBuku.getValueAt(baris, 5).toString());
+        jJudulField.setText(jTableBuku.getValueAt(baris, 1).toString());
+        jGenreField.setText(jTableBuku.getValueAt(baris, 2).toString());
+        jTahunField.setText(jTableBuku.getValueAt(baris, 3).toString());
+        jPenulisField.setText(jTableBuku.getValueAt(baris, 4).toString());
+        jLink_CoverField.setText(jTableBuku.getValueAt(baris, 5).toString());
+        jComboBoxStatus.setSelectedItem(jTableBuku.getValueAt(baris, 6).toString());
     }//GEN-LAST:event_jTableBukuMouseClicked
 
     private void jButtonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHapusActionPerformed

@@ -25,23 +25,25 @@ public class TableDataBuku_Model extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
     
     @Override
     public String getColumnName(int column) {
         switch (column) {
             case 0:
-                return "Judul";
+                return "ID";
             case 1:
-                return "Genre";
+                return "Judul";
             case 2:
-                return "Tahun";
+                return "Genre";
             case 3:
-                return "Penulis";
+                return "Tahun";
             case 4:
-                return "Link Cover";
+                return "Penulis";
             case 5:
+                return "Link Cover";
+            case 6:
                 return "Status";
             default:
                 return null;
@@ -52,16 +54,18 @@ public class TableDataBuku_Model extends AbstractTableModel {
     public Object getValueAt(int row, int column) {
         switch (column) {
             case 0:
-                return db.get(row).getJudul();
+                return db.get(row).getIdBuku();
             case 1:
-                return db.get(row).getGenre();
+                return db.get(row).getJudul();
             case 2:
-                return db.get(row).getTahun();
+                return db.get(row).getGenre();
             case 3:
-                return db.get(row).getPenulis();
+                return db.get(row).getTahun();
             case 4:
-                return db.get(row).getLink_cover();
+                return db.get(row).getPenulis();
             case 5:
+                return db.get(row).getLink_cover();
+            case 6:
                 return db.get(row).getStatus();
             default:
                 return null;

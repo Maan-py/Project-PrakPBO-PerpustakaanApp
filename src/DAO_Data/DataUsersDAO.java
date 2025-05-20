@@ -33,6 +33,7 @@ public class DataUsersDAO implements DataUsersImplement {
             
             if(rs.next()) {
                 d.setIdUser(rs.getInt("id"));
+                d.setUsername(rs.getString("username"));
                 return d;
             } else {
                 return null;
