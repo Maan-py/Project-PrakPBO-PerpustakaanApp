@@ -37,11 +37,15 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBuku = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonPinjamBuku = new javax.swing.JButton();
+        jButtonRiwayatPeminjaman = new javax.swing.JButton();
         jButtonManajemen = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabelJudul = new javax.swing.JLabel();
+        jLabelGenre = new javax.swing.JLabel();
+        jLabelTahun = new javax.swing.JLabel();
+        jLabelPenulis = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,11 +62,27 @@ public class DashboardPage extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableBuku.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableBukuMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableBuku);
 
-        jButton1.setText("Pesan Buku");
+        jButtonPinjamBuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonPinjamBuku.setText("Pinjam Buku");
+        jButtonPinjamBuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPinjamBukuActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Riwayat Peminjaman");
+        jButtonRiwayatPeminjaman.setText("Riwayat Peminjaman");
+        jButtonRiwayatPeminjaman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRiwayatPeminjamanActionPerformed(evt);
+            }
+        });
 
         jButtonManajemen.setText("Manajemen Buku");
         jButtonManajemen.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +98,15 @@ public class DashboardPage extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Pinjam Button");
+        jButton3.setText("Pinjam Buku");
+
+        jLabelJudul.setText("Judul");
+
+        jLabelGenre.setText("Genre");
+
+        jLabelTahun.setText("Tahun");
+
+        jLabelPenulis.setText("Penulis");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,15 +118,24 @@ public class DashboardPage extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonPinjamBuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonRiwayatPeminjaman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonManajemen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(107, 107, 107)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jLabelGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabelPenulis, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,18 +144,29 @@ public class DashboardPage extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButtonManajemen)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(jButtonPinjamBuku)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonRiwayatPeminjaman)
+                                .addGap(26, 26, 26)
+                                .addComponent(jButtonManajemen)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelJudul)
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelGenre)
+                            .addComponent(jLabelTahun)
+                            .addComponent(jLabelPenulis))
+                        .addGap(112, 112, 112)))
                 .addComponent(jButton3)
                 .addGap(18, 18, 18))
         );
@@ -145,6 +193,32 @@ public class DashboardPage extends javax.swing.JFrame {
         dashboardPage1.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_jButtonManajemenActionPerformed
+
+    private void jButtonRiwayatPeminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRiwayatPeminjamanActionPerformed
+        // TODO add your handling code here:
+        RiwayatPeminjamanPage riwayatPeminjamanPage = new RiwayatPeminjamanPage();
+        riwayatPeminjamanPage.setVisible(true);
+        riwayatPeminjamanPage.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButtonRiwayatPeminjamanActionPerformed
+
+    private void jButtonPinjamBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPinjamBukuActionPerformed
+        // TODO add your handling code here:
+//        DashboardPage dashboardPage = new DashboardPage();
+//        dashboardPage.setVisible(true);
+//        dashboardPage.setLocationRelativeTo(null);
+//        this.dispose();
+    }//GEN-LAST:event_jButtonPinjamBukuActionPerformed
+
+    private void jTableBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBukuMouseClicked
+        // TODO add your handling code here:
+        int baris = jTableBuku.getSelectedRow();
+        
+        jLabelJudul.setText(jTableBuku.getValueAt(baris, 0).toString());
+        jLabelGenre.setText(jTableBuku.getValueAt(baris, 1).toString());
+        jLabelTahun.setText(jTableBuku.getValueAt(baris, 2).toString());
+        jLabelPenulis.setText(jTableBuku.getValueAt(baris, 3).toString());
+    }//GEN-LAST:event_jTableBukuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -182,12 +256,16 @@ public class DashboardPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonManajemen;
+    private javax.swing.JButton jButtonPinjamBuku;
+    private javax.swing.JButton jButtonRiwayatPeminjaman;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelGenre;
+    private javax.swing.JLabel jLabelJudul;
+    private javax.swing.JLabel jLabelPenulis;
+    private javax.swing.JLabel jLabelTahun;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableBuku;
     // End of variables declaration//GEN-END:variables

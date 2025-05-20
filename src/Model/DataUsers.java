@@ -9,9 +9,9 @@ package Model;
  * @author Maan
  */
 public class DataUsers {
-    int IdUser;
-    String username;
-    String password;
+    private int IdUser;
+    private String username;
+    private String password;
 
     public int getIdUser() {
         return IdUser;

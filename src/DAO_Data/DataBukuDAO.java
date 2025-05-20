@@ -18,10 +18,10 @@ import java.util.List;
  */
 public class DataBukuDAO implements DataBukuImplement {
     Connection connection;
-    String insert = "INSERT INTO buku (judul, genre, tahun, penulis, link_cover) VALUES (?, ?, ?, ?, ?)";
-    String select = "SELECT * FROM buku";
-    String update = "UPDATE buku SET judul = ?, genre = ?, tahun = ?, penulis = ?, link_cover = ? WHERE id = ?";
-    String delete = "DELETE FROM buku WHERE id = ?";
+    String insert = "INSERT INTO buku (judul, genre, tahun, penulis, link_cover, status) VALUES (?, ?, ?, ?, ?, ?)";
+    String select = "SELECT * FROM buku WHERE status !=  'Dihapus'";
+    String update = "UPDATE buku SET judul = ?, genre = ?, tahun = ?, penulis = ?, link_cover = ?, status = ? WHERE id = ?";
+    String delete = "UPDATE buku SET status = 'Dihapus' WHERE id = ?";
     
     public DataBukuDAO() {
         connection = Connector.connection();
@@ -38,6 +38,7 @@ public class DataBukuDAO implements DataBukuImplement {
             statement.setString(3, db.getTahun());
             statement.setString(4, db.getPenulis());
             statement.setString(5, db.getLink_cover());
+            statement.setString(6, db.getStatus());
             
             ResultSet rs = statement.getGeneratedKeys();
             
@@ -75,6 +76,7 @@ public class DataBukuDAO implements DataBukuImplement {
                 buku.setTahun(rs.getString("tahun"));
                 buku.setPenulis(rs.getString("penulis"));
                 buku.setLink_cover(rs.getString("link_cover"));
+                buku.setStatus(rs.getString("status"));
                 
                 db.add(buku);
             }
@@ -95,7 +97,8 @@ public class DataBukuDAO implements DataBukuImplement {
             statement.setString(3, db.getTahun());
             statement.setString(4, db.getPenulis());
             statement.setString(5, db.getLink_cover());
-            statement.setInt(6, db.getIdBuku());
+            statement.setString(6, db.getStatus());
+            statement.setInt(7, db.getIdBuku());
             
             statement.executeUpdate();
         } catch (SQLException e) {

@@ -48,6 +48,7 @@ public class BukuController {
         db.setTahun(manajemenBukuPage.getjTahunField().getText());
         db.setPenulis(manajemenBukuPage.getjPenulisField().getText());
         db.setLink_cover(manajemenBukuPage.getjLink_CoverField().getText());
+        db.setStatus(manajemenBukuPage.getjComboBoxStatus().getSelectedItem().toString());
         
         implementBuku.insert(db);
     }
@@ -78,6 +79,7 @@ public class BukuController {
             buku.setTahun(manajemenBukuPage.getjTahunField().getText());
             buku.setPenulis(manajemenBukuPage.getjPenulisField().getText());
             buku.setLink_cover(manajemenBukuPage.getjLink_CoverField().getText());
+            buku.setStatus(manajemenBukuPage.getjComboBoxStatus().getSelectedItem().toString());
 
             implementBuku.update(buku);
 
@@ -86,6 +88,7 @@ public class BukuController {
             manajemenBukuPage.getjTahunField().setText("");
             manajemenBukuPage.getjPenulisField().setText("");
             manajemenBukuPage.getjLink_CoverField().setText("");
+            manajemenBukuPage.getjComboBoxStatus().setSelectedItem("Tersedia");
                 
             JOptionPane.showMessageDialog(manajemenBukuPage, "Buku berhasil diupdate", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
             return;
@@ -102,6 +105,7 @@ public class BukuController {
         manajemenBukuPage.getjTahunField().setText("");
         manajemenBukuPage.getjPenulisField().setText("");
         manajemenBukuPage.getjLink_CoverField().setText("");
+        manajemenBukuPage.getjComboBoxStatus().setSelectedItem("Tersedia");
         
         if(baris != -1) {
             DataBuku buku = db.get(baris);
@@ -122,6 +126,7 @@ public class BukuController {
             manajemenBukuPage.getjTahunField().setText("");
             manajemenBukuPage.getjPenulisField().setText("");
             manajemenBukuPage.getjLink_CoverField().setText("");
+            manajemenBukuPage.getjComboBoxStatus().setSelectedItem("Tersedia");
             
             return;
         } 

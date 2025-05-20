@@ -9,12 +9,13 @@ package Model;
  * @author Maan
  */
 public class DataBuku {
-    int idBuku;
-    String judul;
-    String genre;
-    String tahun;
-    String penulis;
-    String link_cover;
+    private int idBuku;
+    private String judul;
+    private String genre;
+    private String tahun;
+    private String penulis;
+    private String link_cover;
+    private String status;
 
     public int getIdBuku() {
         return idBuku;
@@ -62,5 +63,13 @@ public class DataBuku {
 
     public void setLink_cover(String link_cover) {
         this.link_cover = link_cover;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -25,7 +25,7 @@ public class TableDataBuku_Model extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 6;
     }
     
     @Override
@@ -41,6 +41,8 @@ public class TableDataBuku_Model extends AbstractTableModel {
                 return "Penulis";
             case 4:
                 return "Link Cover";
+            case 5:
+                return "Status";
             default:
                 return null;
         }
@@ -59,6 +61,8 @@ public class TableDataBuku_Model extends AbstractTableModel {
                 return db.get(row).getPenulis();
             case 4:
                 return db.get(row).getLink_cover();
+            case 5:
+                return db.get(row).getStatus();
             default:
                 return null;
         }

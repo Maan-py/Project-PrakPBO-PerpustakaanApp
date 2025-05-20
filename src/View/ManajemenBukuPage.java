@@ -5,6 +5,7 @@
 package View;
 
 import Controller.BukuController;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -49,7 +50,7 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLink_CoverField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jPesanBukuButton = new javax.swing.JButton();
+        jPinjamBukuButton = new javax.swing.JButton();
         jRiwayatPeminjamanButton = new javax.swing.JButton();
         jManajemenBukuButton = new javax.swing.JButton();
         jLogoutButton = new javax.swing.JButton();
@@ -59,6 +60,8 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
         jButtonUpdate = new javax.swing.JButton();
         jButtonHapus = new javax.swing.JButton();
         jButtonClear = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBoxStatus = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,10 +77,21 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
 
         jLabel6.setText("Link Cover");
 
-        jPesanBukuButton.setText("Pesan Buku");
+        jPinjamBukuButton.setText("Pinjam Buku");
+        jPinjamBukuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPinjamBukuButtonActionPerformed(evt);
+            }
+        });
 
         jRiwayatPeminjamanButton.setText("Riwayat Peminjaman");
+        jRiwayatPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRiwayatPeminjamanButtonActionPerformed(evt);
+            }
+        });
 
+        jManajemenBukuButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jManajemenBukuButton.setText("Manajemen Buku");
         jManajemenBukuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +152,15 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Status");
+
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tersedia", "Dipinjam", "Dihapus" }));
+        jComboBoxStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxStatusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,7 +168,7 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPesanBukuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPinjamBukuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRiwayatPeminjamanButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jManajemenBukuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -154,31 +177,30 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
+                        .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jJudulField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jGenreField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTahunField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPenulisField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLink_CoverField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(36, 36, 36)
+                                .addGap(107, 107, 107)
                                 .addComponent(jButtonUpdate)
                                 .addGap(29, 29, 29)
                                 .addComponent(jButtonHapus)
                                 .addGap(33, 33, 33)
                                 .addComponent(jButtonClear))
-                            .addComponent(jButtonTambah))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(jButtonTambah)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jJudulField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jGenreField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jTahunField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jPenulisField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addComponent(jLink_CoverField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                            .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +208,7 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
-                        .addComponent(jPesanBukuButton)
+                        .addComponent(jPinjamBukuButton)
                         .addGap(18, 18, 18)
                         .addComponent(jRiwayatPeminjamanButton)
                         .addGap(26, 26, 26)
@@ -218,15 +240,18 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLink_CoverField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButtonUpdate)
-                                        .addComponent(jButtonHapus)
-                                        .addComponent(jButtonClear))
-                                    .addComponent(jButtonTambah, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(36, 106, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButtonUpdate)
+                                    .addComponent(jButtonHapus)
+                                    .addComponent(jButtonClear)
+                                    .addComponent(jButtonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(36, 44, Short.MAX_VALUE))
         );
 
         pack();
@@ -246,10 +271,10 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
 
     private void jManajemenBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManajemenBukuButtonActionPerformed
         // TODO add your handling code here:
-        ManajemenBukuPage manajemenBukuPage = new ManajemenBukuPage();
-        manajemenBukuPage.setVisible(true);
-        manajemenBukuPage.setLocationRelativeTo(null);
-        this.dispose();
+//        ManajemenBukuPage manajemenBukuPage = new ManajemenBukuPage();
+//        manajemenBukuPage.setVisible(true);
+//        manajemenBukuPage.setLocationRelativeTo(null);
+//        this.dispose();
     }//GEN-LAST:event_jManajemenBukuButtonActionPerformed
 
     private void jButtonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTambahActionPerformed
@@ -273,6 +298,7 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
         jTahunField.setText(jTableBuku.getValueAt(baris, 2).toString());
         jPenulisField.setText(jTableBuku.getValueAt(baris, 3).toString());
         jLink_CoverField.setText(jTableBuku.getValueAt(baris, 4).toString());
+        jComboBoxStatus.setSelectedItem(jTableBuku.getValueAt(baris, 5).toString());
     }//GEN-LAST:event_jTableBukuMouseClicked
 
     private void jButtonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHapusActionPerformed
@@ -289,6 +315,26 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
         jPenulisField.setText("");
         jLink_CoverField.setText("");
     }//GEN-LAST:event_jButtonClearActionPerformed
+
+    private void jRiwayatPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRiwayatPeminjamanButtonActionPerformed
+        // TODO add your handling code here:
+        RiwayatPeminjamanPage riwayatPeminjamanPage = new RiwayatPeminjamanPage();
+        riwayatPeminjamanPage.setVisible(true);
+        riwayatPeminjamanPage.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jRiwayatPeminjamanButtonActionPerformed
+
+    private void jPinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPinjamBukuButtonActionPerformed
+        // TODO add your handling code here:
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.setVisible(true);
+        dashboardPage.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jPinjamBukuButtonActionPerformed
+
+    private void jComboBoxStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,6 +379,7 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
     private javax.swing.JButton jButtonHapus;
     private javax.swing.JButton jButtonTambah;
     private javax.swing.JButton jButtonUpdate;
+    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JTextField jGenreField;
     private javax.swing.JTextField jJudulField;
     private javax.swing.JLabel jLabel1;
@@ -341,11 +388,12 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jLink_CoverField;
     private javax.swing.JButton jLogoutButton;
     private javax.swing.JButton jManajemenBukuButton;
     private javax.swing.JTextField jPenulisField;
-    private javax.swing.JButton jPesanBukuButton;
+    private javax.swing.JButton jPinjamBukuButton;
     private javax.swing.JButton jRiwayatPeminjamanButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableBuku;
@@ -398,5 +446,13 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
 
     public void setjTahunField(JTextField jTahunField) {
         this.jTahunField = jTahunField;
+    }
+
+    public JComboBox<String> getjComboBoxStatus() {
+        return jComboBoxStatus;
+    }
+
+    public void setjComboBoxStatus(JComboBox<String> jComboBoxStatus) {
+        this.jComboBoxStatus = jComboBoxStatus;
     }
 }
