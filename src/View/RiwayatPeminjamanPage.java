@@ -58,7 +58,9 @@ public class RiwayatPeminjamanPage extends javax.swing.JFrame {
             }
         });
 
+        jRiwayatPeminjamanButton.setBackground(new java.awt.Color(105, 127, 98));
         jRiwayatPeminjamanButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jRiwayatPeminjamanButton.setForeground(new java.awt.Color(255, 255, 102));
         jRiwayatPeminjamanButton.setText("Riwayat Peminjaman");
         jRiwayatPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

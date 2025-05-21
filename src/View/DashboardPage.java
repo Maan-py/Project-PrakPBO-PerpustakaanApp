@@ -77,7 +77,9 @@ public class DashboardPage extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableBuku);
 
+        jButtonPinjamBuku.setBackground(new java.awt.Color(105, 127, 98));
         jButtonPinjamBuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonPinjamBuku.setForeground(new java.awt.Color(255, 255, 102));
         jButtonPinjamBuku.setText("Pinjam Buku");
         jButtonPinjamBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

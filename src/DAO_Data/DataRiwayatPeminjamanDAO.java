@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class DataRiwayatPeminjamanDAO implements DataRiwayatPeminjamanImplement {
     Connection connection;
     String insert = "INSERT INTO riwayat_peminjaman (id_peminjaman, id_buku, id_user, tanggal_peminjaman) VALUES(NULL, ?, ?, ?)";
-    String select = "SELECT rp.id_peminjaman, b.judul AS judul_buku, b.status AS status_buku, u.username AS nama_peminjam, rp.tanggal_peminjaman AS tanggal_peminjaman FROM riwayat_peminjaman rp JOIN buku b ON rp.id_buku = b.id JOIN users u ON rp.id_user = u.id";
+    String select = "SELECT rp.id_peminjaman, b.judul AS judul_buku, b.status AS status_buku, u.username AS nama_peminjam, rp.tanggal_peminjaman AS tanggal_peminjaman FROM riwayat_peminjaman rp JOIN buku b ON rp.id_buku = b.id JOIN users u ON rp.id_user = u.id ORDER BY id_peminjaman ASC";
     public DataRiwayatPeminjamanDAO() {
         connection = Connector.connection();
     }
