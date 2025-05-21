@@ -46,7 +46,6 @@ public class RiwayatPeminjamanPage extends javax.swing.JFrame {
         jLogoutButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBuku = new javax.swing.JTable();
-        jButtonKembalikanBuku = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,13 +98,6 @@ public class RiwayatPeminjamanPage extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableBuku);
 
-        jButtonKembalikanBuku.setText("Kembalikan Buku");
-        jButtonKembalikanBuku.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKembalikanBukuActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,11 +112,8 @@ public class RiwayatPeminjamanPage extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButtonKembalikanBuku)))
-                .addContainerGap(297, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,12 +132,8 @@ public class RiwayatPeminjamanPage extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(jButtonKembalikanBuku))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(36, 107, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 104, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,15 +169,6 @@ public class RiwayatPeminjamanPage extends javax.swing.JFrame {
 //        jPenulisField.setText(jTableBuku.getValueAt(baris, 3).toString());
 //        jLink_CoverField.setText(jTableBuku.getValueAt(baris, 4).toString());
     }//GEN-LAST:event_jTableBukuMouseClicked
-
-    private void jButtonKembalikanBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKembalikanBukuActionPerformed
-        // TODO add your handling code here:
-//        jJudulField.setText("");
-//        jGenreField.setText("");
-//        jTahunField.setText("");
-//        jPenulisField.setText("");
-//        jLink_CoverField.setText("");
-    }//GEN-LAST:event_jButtonKembalikanBukuActionPerformed
 
     private void jPinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPinjamBukuButtonActionPerformed
         // TODO add your handling code here:
@@ -249,7 +225,6 @@ public class RiwayatPeminjamanPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonKembalikanBuku;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jLogoutButton;
     private javax.swing.JButton jManajemenBukuButton;

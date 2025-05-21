@@ -28,4 +28,12 @@ public class UsersController {
         
         return implementUsers.cekLogin(du);
     }
+    
+    public DataUsers registrasi() {
+        DataUsers du = new DataUsers();
+        du.setUsername(loginFrame.getjUsernameField().getText());
+        du.setPassword(loginFrame.getjPasswordField().getText());
+        
+        return implementUsers.registrasi(du);
+    }
 }

@@ -6,6 +6,7 @@ package View;
 
 import Controller.BukuController;
 import Controller.RiwayatPeminjamanController;
+import Model.DataUsers;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -26,6 +27,8 @@ public class DashboardPage extends javax.swing.JFrame {
         bc = new BukuController(this);
         rpc = new RiwayatPeminjamanController(this);
         bc.isiTabelDashboardPage();
+        
+       jLabelUser.setText("Halo, " + DataUsers.currentUser.getUsername());
     }
 
     /**
@@ -49,6 +52,8 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabelGenre = new javax.swing.JLabel();
         jLabelTahun = new javax.swing.JLabel();
         jLabelPenulis = new javax.swing.JLabel();
+        jLabelCover = new javax.swing.JLabel();
+        jLabelUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,13 +113,19 @@ public class DashboardPage extends javax.swing.JFrame {
             }
         });
 
+        jLabelJudul.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelJudul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelJudul.setText("Judul");
+        jLabelJudul.setToolTipText("");
 
         jLabelGenre.setText("Genre");
 
         jLabelTahun.setText("Tahun");
 
         jLabelPenulis.setText("Penulis");
+
+        jLabelUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelUser.setText("Halo, ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,54 +140,67 @@ public class DashboardPage extends javax.swing.JFrame {
                             .addComponent(jButtonPinjamBuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonRiwayatPeminjaman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonManajemen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(107, 107, 107)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jLabelGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabelTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabelPenulis, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabelPenulis, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addGap(79, 79, 79)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelCover, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(40, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabelCover, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelGenre)
+                            .addComponent(jLabelTahun)
+                            .addComponent(jLabelPenulis)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
+                                .addComponent(jLabelUser)
+                                .addGap(57, 57, 57)
                                 .addComponent(jButtonPinjamBuku)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonRiwayatPeminjaman)
                                 .addGap(26, 26, 26)
                                 .addComponent(jButtonManajemen)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelJudul)
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelGenre)
-                            .addComponent(jLabelTahun)
-                            .addComponent(jLabelPenulis))
-                        .addGap(112, 112, 112)))
+                                .addComponent(jButton4))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26)
                 .addComponent(jButtonPinjam)
-                .addGap(18, 18, 18))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
+
+        jLabelJudul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -225,6 +249,21 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabelGenre.setText(jTableBuku.getValueAt(baris, 2).toString());
         jLabelTahun.setText(jTableBuku.getValueAt(baris, 3).toString());
         jLabelPenulis.setText(jTableBuku.getValueAt(baris, 4).toString());
+        
+        try {
+            String urlCover = jTableBuku.getValueAt(baris, 5).toString();
+            java.net.URL url = new java.net.URL(urlCover);
+            javax.swing.ImageIcon icon = new javax.swing.ImageIcon(url);
+
+            java.awt.Image img = icon.getImage().getScaledInstance(jLabelCover.getWidth(), jLabelCover.getHeight(), java.awt.Image.SCALE_SMOOTH);
+            jLabelCover.setIcon(new javax.swing.ImageIcon(img));
+            jLabelCover.setText(""); 
+
+        } catch (Exception e) {
+            jLabelCover.setIcon(null);
+            jLabelCover.setText("Gambar tidak tersedia");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jTableBukuMouseClicked
 
     private void jButtonPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPinjamActionPerformed
@@ -274,10 +313,12 @@ public class DashboardPage extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPinjamBuku;
     private javax.swing.JButton jButtonRiwayatPeminjaman;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelCover;
     private javax.swing.JLabel jLabelGenre;
     private javax.swing.JLabel jLabelJudul;
     private javax.swing.JLabel jLabelPenulis;
     private javax.swing.JLabel jLabelTahun;
+    private javax.swing.JLabel jLabelUser;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableBuku;
     // End of variables declaration//GEN-END:variables

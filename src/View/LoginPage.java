@@ -42,8 +42,11 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButtonLogin = new javax.swing.JButton();
         jPasswordField = new javax.swing.JPasswordField();
+        jLabelGambar = new javax.swing.JLabel();
+        jButtonRegister = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(105, 127, 98));
 
         jUsernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,34 +67,52 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
+        jLabelGambar.setBackground(new java.awt.Color(105, 127, 98));
+        jLabelGambar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Cozy Library Shelf and Coffee.png"))); // NOI18N
+
+        jButtonRegister.setText("Register");
+        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegisterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonLogin)
-                    .addComponent(jUsernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jPasswordField))
-                .addContainerGap(869, Short.MAX_VALUE))
+                .addGap(94, 94, 94)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                        .addComponent(jUsernameField))
+                    .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addComponent(jLabelGambar))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(196, 196, 196)
+                .addGap(142, 142, 142)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonLogin)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonRegister)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabelGambar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,6 +148,31 @@ public class LoginPage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
+        // TODO add your handling code here:
+        String username = jUsernameField.getText();
+        String password = jPasswordField.getText();
+        
+        if(username.equals("")) {
+             JOptionPane.showMessageDialog(null, "Username jangan lupa diisi ya");
+        } else if(password.equals("")) {
+             JOptionPane.showMessageDialog(null, "Password jangan lupa diisi ya");
+        } else {
+            DataUsers du = uc.registrasi();
+            if (du != null) {
+                DataUsers.currentUser = du;
+                JOptionPane.showMessageDialog(null, "Registrasi berhasil!");
+                
+//                DashboardPage dashboardPage = new DashboardPage();
+//                dashboardPage.setVisible(true);
+//                dashboardPage.setLocationRelativeTo(null);
+//                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Username sudah terdaftar");
+            }
+        }
+    }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,8 +211,10 @@ public class LoginPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
+    private javax.swing.JButton jButtonRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelGambar;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JTextField jUsernameField;
     // End of variables declaration//GEN-END:variables

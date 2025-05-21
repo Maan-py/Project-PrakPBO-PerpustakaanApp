@@ -11,4 +11,6 @@ import Model.*;
  */
 public interface DataUsersImplement {
     public DataUsers cekLogin(DataUsers d);
+    public boolean isUsernameExists(String username);
+    public DataUsers registrasi(DataUsers d);
 }
