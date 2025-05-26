@@ -51,6 +51,7 @@ public class BukuController {
         db.setStatus(manajemenBukuPage.getjComboBoxStatus().getSelectedItem().toString());
 
         implementBuku.insert(db);
+        JOptionPane.showMessageDialog(manajemenBukuPage, "Buku berhasil ditambah", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void isiTabelManajemenBukuPage() {
@@ -110,7 +111,7 @@ public class BukuController {
             DataBuku buku = db.get(baris);
             int id = buku.getIdBuku();
 
-            int konfirmasi = JOptionPane.showConfirmDialog(manajemenBukuPage, "Apakah anda yakin ingin menghapus buku berjudul " + manajemenBukuPage.getjJudulField().getText() + "?", "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
+            int konfirmasi = JOptionPane.showConfirmDialog(manajemenBukuPage, "Apakah anda yakin ingin menghapus buku ini?", "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
 
             if (konfirmasi == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(manajemenBukuPage, "Buku berhasil dihapus", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
