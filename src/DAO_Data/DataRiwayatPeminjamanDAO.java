@@ -22,6 +22,7 @@ public class DataRiwayatPeminjamanDAO implements DataRiwayatPeminjamanImplement 
     Connection connection;
     String insert = "INSERT INTO riwayat_peminjaman (id_peminjaman, id_buku, id_user, tanggal_peminjaman) VALUES(NULL, ?, ?, ?)";
     String select = "SELECT rp.id_peminjaman, b.judul AS judul_buku, b.status AS status_buku, u.username AS nama_peminjam, rp.tanggal_peminjaman AS tanggal_peminjaman FROM riwayat_peminjaman rp JOIN buku b ON rp.id_buku = b.id JOIN users u ON rp.id_user = u.id ORDER BY id_peminjaman ASC";
+    String updateStatusBuku = "UPDATE buku SET status = 'Dipinjam' WHERE id = ?";
     public DataRiwayatPeminjamanDAO() {
         connection = Connector.connection();
     }
@@ -29,25 +30,27 @@ public class DataRiwayatPeminjamanDAO implements DataRiwayatPeminjamanImplement 
     @Override
     public void insert(DataRiwayatPeminjaman rp) {
         PreparedStatement statement = null;
-        
+
         try {
             statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, rp.getIdBuku());
             statement.setInt(2, rp.getIdPeminjam());
             statement.setString(3, rp.getTanggalPeminjaman());
-            
+
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 rp.setIdPeminjaman(rs.getInt(1));
             }
-            
+
+            updateStatusBuku(rp.getIdBuku());
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
-                statement.close();
+                if (statement != null) statement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -79,5 +82,27 @@ public class DataRiwayatPeminjamanDAO implements DataRiwayatPeminjamanImplement 
         }
         return drp;
     }
+    
+    public void updateStatusBuku(int idBuku) {
+    PreparedStatement statement = null;
+
+    try {
+        statement = connection.prepareStatement(updateStatusBuku);
+        statement.setInt(1, idBuku);
+
+        statement.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (statement != null) {
+                statement.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
     
 }

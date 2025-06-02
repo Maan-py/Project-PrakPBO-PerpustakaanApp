@@ -14,4 +14,5 @@ import java.util.List;
 public interface DataRiwayatPeminjamanImplement {
     public void insert(DataRiwayatPeminjaman rp);
     public List<DataRiwayatPeminjaman> getAll(DataRiwayatPeminjaman rp);
+    public void updateStatusBuku(int idBuku);
 }

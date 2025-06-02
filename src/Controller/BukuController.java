@@ -100,13 +100,6 @@ public class BukuController {
     public void delete() {
         int baris = manajemenBukuPage.getjTableBuku().getSelectedRow();
 
-        manajemenBukuPage.getjJudulField().setText("");
-        manajemenBukuPage.getjGenreField().setText("");
-        manajemenBukuPage.getjTahunField().setText("");
-        manajemenBukuPage.getjPenulisField().setText("");
-        manajemenBukuPage.getjLink_CoverField().setText("");
-        manajemenBukuPage.getjComboBoxStatus().setSelectedItem("Tersedia");
-
         if (baris != -1) {
             DataBuku buku = db.get(baris);
             int id = buku.getIdBuku();
@@ -115,7 +108,15 @@ public class BukuController {
 
             if (konfirmasi == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(manajemenBukuPage, "Buku berhasil dihapus", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
-
+                
+                manajemenBukuPage.getjJudulField().setText("");
+                manajemenBukuPage.getjGenreField().setText("");
+                manajemenBukuPage.getjTahunField().setText("");
+                manajemenBukuPage.getjPenulisField().setText("");
+                manajemenBukuPage.getjLink_CoverField().setText("");
+                manajemenBukuPage.getjLabelCover().setIcon(null);
+                manajemenBukuPage.getjComboBoxStatus().setSelectedItem("Tersedia");
+                
                 implementBuku.delete(id);
 
                 return;

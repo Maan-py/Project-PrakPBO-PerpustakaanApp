@@ -48,12 +48,20 @@ public class RiwayatPeminjamanController {
         if (baris != -1) {
             int idBuku = Integer.parseInt(dashboardPage.getjTableBuku().getValueAt(baris, 0).toString());
             int idUser = DataUsers.currentUser.getIdUser();
+            String statusBuku = dashboardPage.getjTableBuku().getValueAt(baris, 6).toString();
+            if (statusBuku.equalsIgnoreCase("Dipinjam")) {
+                JOptionPane.showMessageDialog(dashboardPage, "Buku sedang dipinjam oleh pengguna lain", "Peminjaman Ditolak", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
             DataRiwayatPeminjaman riwayat = drp.get(baris);
             riwayat.setIdBuku(idBuku);
             riwayat.setIdPeminjam(idUser);
             riwayat.setTanggalPeminjaman(LocalDate.now().toString());
 
             implementRiwayat.insert(riwayat);
+            
+            implementRiwayat.updateStatusBuku(idBuku);
 
             JOptionPane.showMessageDialog(riwayatPeminjamanPage, "Buku berhasil dipinjam", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
             return;

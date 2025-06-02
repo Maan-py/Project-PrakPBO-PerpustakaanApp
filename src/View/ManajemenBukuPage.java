@@ -6,6 +6,7 @@ package View;
 
 import Controller.BukuController;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -495,4 +496,14 @@ public class ManajemenBukuPage extends javax.swing.JFrame {
     public void setjComboBoxStatus(JComboBox<String> jComboBoxStatus) {
         this.jComboBoxStatus = jComboBoxStatus;
     }
+
+    public JLabel getjLabelCover() {
+        return jLabelCover;
+    }
+
+    public void setjLabelCover(JLabel jLabelCover) {
+        this.jLabelCover = jLabelCover;
+    }
+    
+    
 }

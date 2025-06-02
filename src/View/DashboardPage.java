@@ -271,6 +271,7 @@ public class DashboardPage extends javax.swing.JFrame {
     private void jButtonPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPinjamActionPerformed
         // TODO add your handling code here:
         rpc.insert();
+        bc.isiTabelDashboardPage();
     }//GEN-LAST:event_jButtonPinjamActionPerformed
 
     /**
